@@ -17,18 +17,18 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-//        String ip_domain = args[0];,000
-,000
-        String domainAddress = "twitch.tv";,000
-        List<String> ipArray = getIpList(domainAddress);,000
-,000
-        System.out.printf("%-30s%-10s%n","ip address","Номер AS");,000
-        System.out.println("---------------------------------------------");,000
-        for (String str : ipArray) {,000
-            String address = str;,000
-            String ripeAnswer = Whois.getWhoisRipe(address);,000
-            String arinAnswer = Whois.getWhoisArin(address);,000
-            if (ripeAnswer == "-1") {,000
+//        String ip_domain = args[0];
+
+        String domainAddress = "twitch.tv";
+        List<String> ipArray = getIpList(domainAddress);
+
+        System.out.printf("%-30s%-10s%n","ip address","Номер AS");
+        System.out.println("---------------------------------------------");
+        for (String str : ipArray) {
+            String address = str;
+            String ripeAnswer = Whois.getWhoisRipe(address);
+            String arinAnswer = Whois.getWhoisArin(address);
+            if (ripeAnswer == "-1") {
                 if (arinAnswer == "-1") {
                     arinAnswer = "";
                     ripeAnswer = "";
