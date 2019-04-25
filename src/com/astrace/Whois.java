@@ -1,10 +1,6 @@
 package com.astrace;
 import java.net.*;
 import java.io.*;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 class Whois {
     public static String getWhoisRipe(String address) throws Exception {
@@ -16,7 +12,7 @@ class Whois {
             InputStream in = s.getInputStream();
             OutputStream out = s.getOutputStream();
 
-            String query = ("-B " + address + "\n");
+            String query = ("" + address + "\n");
 
             byte buf[] = query.getBytes();
 
@@ -44,8 +40,6 @@ class Whois {
             OutputStream out = s.getOutputStream();
 
             String query = ("z + " + address + "\n");
-//            String query = (address + "\n");
-
 
             byte buf[] = query.getBytes();
 

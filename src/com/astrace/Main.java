@@ -17,38 +17,26 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-//        String ip_domain = args[0];
-//        String fileName = "out.txt";
-//        String out = "";
-//        StringBuilder outBuilder = new StringBuilder();
-//        System.out.println("Выполняю трассировку до " + ip_domain +". Это займет всего пару десятков секунд.");
-//        for (String s : getIpList(ip_domain))
-//        {
-//            String[] tempArr = http.sendGet(s).split(",");
-//            if(tempArr.length == 1)
-//                outBuilder.append(String.format("%-30s%n",tempArr[0]));
-//            if(tempArr.length == 2)
-//                outBuilder.append(String.format("%-30s%-10s%n",tempArr[0],tempArr[1]));
-//            if (tempArr.length == 3)
-//                outBuilder.append(String.format("%-30s%-10s%-30s%n",tempArr[0],tempArr[1],tempArr[2]));
-//        }
-//        out = outBuilder.toString();
-//        System.out.printf("%-30s%-10s%-30s%n","ip address","Страна","Номер автономной системы и провайдер");
-//        System.out.println("-------------------------------------------------------------------------------------");
-//        System.out.println(out);
-//        Whois.getWhoisInfo();
-
-//        Scanner sc = new Scanner(System.in);
-        String address = "";
-        String ripeAnswer = Whois.getWhoisRipe(address);
-        String arinAnser = Whois.getWhoisArin(address);
-        if ( ripeAnswer == "-1") {
-            if (arinAnser == "-1")
-                System.out.println("Не нашел");
-            else System.out.println(arinAnser);
+//        String ip_domain = args[0];,000
+,000
+        String domainAddress = "twitch.tv";,000
+        List<String> ipArray = getIpList(domainAddress);,000
+,000
+        System.out.printf("%-30s%-10s%n","ip address","Номер AS");,000
+        System.out.println("---------------------------------------------");,000
+        for (String str : ipArray) {,000
+            String address = str;,000
+            String ripeAnswer = Whois.getWhoisRipe(address);,000
+            String arinAnswer = Whois.getWhoisArin(address);,000
+            if (ripeAnswer == "-1") {,000
+                if (arinAnswer == "-1") {
+                    arinAnswer = "";
+                    ripeAnswer = "";
+                    System.out.printf("%-30s%-10s%n",address,"");
+                }
+               else System.out.printf("%-30s%-10s%n",address,arinAnswer);
+            } else System.out.printf("%-30s%-10s%n",address,ripeAnswer);
         }
-        else System.out.println(ripeAnswer);
-
     }
 
     public static List<String> getIpList(String ip_domain) {
