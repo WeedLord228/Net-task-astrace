@@ -10,7 +10,7 @@ public class HTTPWorker {
 // SendGEt Посылает гет запрос на ипинфо  возвращает только поля IP, country и номер автоомной системы с провайдером
     protected String sendGet(String ip) throws Exception {
 
-        String url = "https://ipinfo.io/"+ ip + "/json";
+        String url = "https://ipinfo.io/"+ ip + "/json"+"?token=9f9a1845e234fc";
 
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();

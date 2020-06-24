@@ -42,7 +42,7 @@ public class Main {
 
         try {
             Runtime r = Runtime.getRuntime();
-            Process p = r.exec("tracert " + ip_domain);
+            Process p = r.exec("traceroute " + ip_domain);
 
             in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
